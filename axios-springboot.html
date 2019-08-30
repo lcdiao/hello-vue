@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>axios</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li>姓名:{{user.username}}</li>
+        <li>生日:{{user.birthday}}</li>
+    </ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                user: {
+                    username: "",
+                    birthday: ""
+                }
+            }
+        },
+        mounted() {
+            axios.get("http://localhost:8080/user")
+                .then(response => this.user = response.data)
+        }
+    });
+</script>
+</body>
+</html>

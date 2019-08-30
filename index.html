@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试函数对象</title>
+</head>
+<body>
+<button onclick="sayHi();">测试</button>
+<script src="utils.js"></script>
+<script type="text/javascript">
+    function sayHi() {
+        Utils.setUsername("老王");
+        alert(Utils.getUsername());
+    }
+</script>
+
+</body>
+</html>
