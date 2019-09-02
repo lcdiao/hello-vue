@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue插槽slot</title>
+</head>
+<body>
+<div id="app">
+    <todo>
+        <todo-title slot="todo-title" v-bind:title="title"></todo-title>
+        <todo-items slot="todo-items" v-for="(item,index) in items" v-bind:item="item" v-bind:index="index"></todo-items>
+    </todo>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+    Vue.component("todo",{
+       template: "<div>\
+                        <slot name='todo-title'></slot>\
+                        <ul>\
+                            <slot name='todo-items'></slot>\
+                        </ul>\
+                   </div>"
+    });
+
+    Vue.component("todo-title",{
+        props: ["title"],
+        template: "<h1>{{title}}</h1>"
+    });
+    Vue.component("todo-items",{
+        props: ["index","item"],
+        template: "<li>{{index}}.{{item}}   <button @click='remove'>删除</button></li>",
+        methods: {
+            remove: function () {
+                alert(1);
+            }
+        }
+    });
+
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            title: "测试",
+            items: ["测试1","测试2","测试3","测试4","测试5","测试6","测试7","测试8"]
+        },
+        methods: {
+            removeItems: function(index){
+
+            }
+        }
+    });
+</script>
+</body>
+</html>

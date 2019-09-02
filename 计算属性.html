@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue计算属性</title>
+</head>
+<body>
+<div id="app">
+    <div>获取当前时间的方法:{{getCurrentTime1()}}</div>
+    <!-- 属性是不会变的(用控制台测试,不F5)，不用加（） -->
+    <div>获取当前时间的属性:{{getCurrentTime2}}</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: "#app",
+        methods: {
+            getCurrentTime1: function () {
+                return Date.now();
+            }
+        },
+        computed: {
+            getCurrentTime2: function () {
+                return Date.now();
+            }
+        }
+    });
+</script>
+</body>
+</html>

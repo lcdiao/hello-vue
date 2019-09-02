@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue组件</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <my-li v-for="item in items" v-bind:name="item"></my-li>
+        <!--                                  绑定props的name，item是v-for的item                       -->
+    </ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+    Vue.component("my-li",{
+        props: ['name'],
+       template: "<li style='color: red'>{{name}}</li>"
+    });
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            items: ["张三","李四","王五","赵六"]
+        }
+    });
+</script>
+</body>
+</html>
