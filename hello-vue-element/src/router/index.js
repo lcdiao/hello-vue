@@ -4,7 +4,10 @@ import Router from 'vue-router'
 import Main from '@/views/Main'
 import Login from '@/views/Login'
 
-Vue.use(Router)
+import UserAdd from '@/views/user/Add'
+import UserList from '@/views/user/List'
+
+Vue.use(Router);
 
 export default new Router({
   routes: [
@@ -16,7 +19,11 @@ export default new Router({
     {
       name: 'Main',
       path: '/main',
-      component: Main
+      component: Main,
+      children: [
+        {name: 'UserAdd',path: '/user/add', component: UserAdd},
+        {name: 'UserList',path: '/user/list', component: UserList}
+      ]
     }
   ]
 })
