@@ -7,9 +7,11 @@ import Login from '@/views/Login'
 import UserAdd from '@/views/user/Add'
 import UserList from '@/views/user/List'
 
+import NotFount from '@/views/404'
 Vue.use(Router);
 
 export default new Router({
+  //mode: 'history',
   routes: [
     {
       name: 'Login',
@@ -28,6 +30,10 @@ export default new Router({
     {
       path: '/home',
       redirect: '/main'
+    },
+    {
+      path: '*',
+      component: NotFount
     }
   ]
 })
