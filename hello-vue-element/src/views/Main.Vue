@@ -6,8 +6,8 @@
           <el-submenu index="1">
             <template slot="title"><i class="el-icon-message"></i>用户管理</template>
             <el-menu-item-group>
-              <el-menu-item index="1-1"><router-link to="/user/add">新增用户</router-link> </el-menu-item>
-              <el-menu-item index="1-2"><router-link to="/user/list">用户列表</router-link></el-menu-item>
+              <el-menu-item index="1-1"><router-link to="/user/add/1">新增用户</router-link> </el-menu-item>
+              <el-menu-item index="1-2"><router-link to="/user/list/2">用户列表</router-link></el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-submenu index="2">
@@ -28,6 +28,7 @@
               <el-dropdown-item>查看</el-dropdown-item>
               <el-dropdown-item>新增</el-dropdown-item>
               <el-dropdown-item>删除</el-dropdown-item>
+              <router-link to="/home">首页</router-link>
             </el-dropdown-menu>
           </el-dropdown>
           <span>王小虎</span>

@@ -21,9 +21,13 @@ export default new Router({
       path: '/main',
       component: Main,
       children: [
-        {name: 'UserAdd',path: '/user/add', component: UserAdd},
-        {name: 'UserList',path: '/user/list', component: UserList}
+        {name: 'UserAdd',path: '/user/add/:id', component: UserAdd},
+        {name: 'UserList',path: '/user/list/:id', component: UserList, props: true}
       ]
+    },
+    {
+      path: '/home',
+      redirect: '/main'
     }
   ]
 })
