@@ -7,7 +7,18 @@
 <script>
 
 export default {
-  name: 'App'
+  name: 'App',
+  mounted() {
+    // window.addEventListener("unload", function () {
+    //   console.log("页面刷新了");
+    // });
+    window.addEventListener("unload", this.saveState)
+  },
+  methods: {
+    saveState: function () {
+      sessionStorage.setItem("state", JSON.stringify(this.$store.state.User))
+    }
+  }
 }
 </script>
 

@@ -27,8 +27,8 @@
         },
         rules: {
           username: [
-            {required: true,message: '请输入用户名',trigger: 'blur'},
-            {min: 3,max: 5,message: '长度在3到5个字符',trigger: 'blur'}
+            {required: true,message: '请输入用户名',trigger: 'blur'}
+            //, {min: 3,max: 5,message: '长度在3到5个字符',trigger: 'blur'}
           ],
           password: [
             {required: true,message: '请输入密码',trigger: 'blur'}
@@ -40,6 +40,8 @@
       login: function (formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
+            sessionStorage.setItem("isLogin","true");
+            this.$store.dispatch("asyncUpdateUser", this.form);
             this.$router.push("/main");
           } else {
             //alert("请输入账号密码");
